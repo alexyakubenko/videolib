@@ -1,0 +1,56 @@
+<%= simple_form_for @movie, :html => { :class => :"form-horizontal" } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Movie</legend>
+
+    <%= f.input :name_ru %>
+
+    <%= f.input :name_en %>
+
+    <%= f.input :year %>
+
+    <div class="control-group">
+      <%= f.label :countries, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.fields_for :movie_countries do |builder| %>
+            <%= render "movie_country_fields", :f => builder %>
+        <% end %>
+        <%= link_to_add_fields "Add Country", f, :movie_countries %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :team, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.fields_for :movie_actors do |builder| %>
+            <%= render "movie_actor_fields", :f => builder %>
+        <% end %>
+        <%= link_to_add_fields "Add Actor", f, :movie_actors %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :genres, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.fields_for :movie_genres do |builder| %>
+            <%= render "movie_genre_fields", :f => builder %>
+        <% end %>
+        <%= link_to_add_fields "Add Genre", f, :movie_genres %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :carriers, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.fields_for :movie_carriers do |builder| %>
+            <%= render "movie_carrier_fields", :f => builder %>
+        <% end %>
+        <%= link_to_add_fields "Add Carrier", f, :movie_carriers %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', movies_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

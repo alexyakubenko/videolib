@@ -1,0 +1,24 @@
+<h1><%= @actor.name_ru %> / <%= @actor.name_en %></h1>
+
+<div>
+  <div><b>Country</b></div>
+  <%= link_to @actor.country.name_ru, country_path(@actor.country) %>
+</div>
+
+<div>
+  <div><b>Movies</b></div>
+  <% @actor.movie_actors.each do |movie_actor| %>
+    <div>
+      <%= link_to movie_actor.movie.name_ru, movie_actor.movie %>
+      (
+      <%= link_to movie_actor.involve.name, movie_actor.involve %>
+      )
+    </div>
+<% end %>
+</div>
+
+<div class="form-actions">
+  <%= link_to 'Back', actors_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_actor_path(@actor), :class => 'btn' %>
+  <%= link_to 'Delete', actor_path(@actor), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

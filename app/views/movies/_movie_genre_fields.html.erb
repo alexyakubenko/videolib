@@ -1,0 +1,7 @@
+<div class="fields">
+  <%= f.association :genre, :include_blank => false %>
+  <%= f.input :percentage %>
+  <div class="controls">
+    <%= link_to_remove_fields "remove", f %>
+  </div>
+</div>

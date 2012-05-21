@@ -1,0 +1,19 @@
+<h1><%= @carrier.name %></h1>
+
+<div>
+  <div><b>Movies</b></div>
+  <% @carrier.movies.order(:year).each do |movie| %>
+      <div>
+        (
+        <%= movie.year %>
+        )
+        <%= link_to movie.name_ru, movie %>
+      </div>
+  <% end %>
+</div>
+
+<div class="form-actions">
+  <%= link_to 'Back', carriers_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_carrier_path(@carrier), :class => 'btn' %>
+  <%= link_to 'Delete', carrier_path(@carrier), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

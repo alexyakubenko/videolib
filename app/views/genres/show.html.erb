@@ -1,0 +1,19 @@
+<h1><%= @genre.name %></h1>
+
+<div>
+  <div><b>Movies</b></div>
+  <% @genre.movie_genres.each do |movie_genre| %>
+    <div>
+      (
+      <%= movie_genre.percentage %>
+      )
+      <%= link_to movie_genre.movie.name_ru, movie_genre.movie %>
+    </div>
+  <% end %>
+</div>
+
+<div class="form-actions">
+  <%= link_to 'Back', genres_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_genre_path(@genre), :class => 'btn' %>
+  <%= link_to 'Delete', genre_path(@genre), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

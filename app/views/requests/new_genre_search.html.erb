@@ -1,0 +1,17 @@
+<%= form_tag :show_genre_search do %>
+    <fieldset>
+      <legend>Find Movies by Genre Percentage</legend>
+
+      <div class="control-group">
+        <%= label_tag :percentage_from, "Percentage from", :class => 'control-label' %>
+        <div class="controls">
+          <%= number_field_tag :percentage_from, 3, :class => 'text_field' %>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= submit_tag "Find", :class => 'btn btn-primary' %>
+        <%= link_to 'Cancel', :root, :class => 'btn' %>
+      </div>
+    </fieldset>
+<% end %>

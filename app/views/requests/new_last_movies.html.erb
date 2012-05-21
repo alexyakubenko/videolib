@@ -1,0 +1,17 @@
+<%= form_tag :show_last_movies do %>
+    <fieldset>
+      <legend>New Last Movies Search</legend>
+
+      <div class="control-group">
+        <%= label_tag :year_from, "Year from", :class => 'control-label' %>
+        <div class="controls">
+          <%= number_field_tag :year_from, 2010, :class => 'text_field' %>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= submit_tag "Find", :class => 'btn btn-primary' %>
+        <%= link_to 'Cancel', :root, :class => 'btn' %>
+      </div>
+    </fieldset>
+<% end %>

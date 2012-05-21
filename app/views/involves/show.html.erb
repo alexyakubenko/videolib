@@ -1,0 +1,19 @@
+<h1><%= @involve.name %></h1>
+
+<div>
+  <div><b>Involvements</b></div>
+  <% @involve.movie_actors.each do |movie_actor| %>
+      <div>
+        <%= link_to movie_actor.actor.name_ru, movie_actor.actor %>
+        (
+        <%= link_to movie_actor.movie.name_ru, movie_actor.movie %>
+        )
+      </div>
+  <% end %>
+</div>
+
+<div class="form-actions">
+  <%= link_to 'Back', involves_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_involf_path(@involve), :class => 'btn' %>
+  <%= link_to 'Delete', involf_path(@involve), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

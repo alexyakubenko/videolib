@@ -1,0 +1,26 @@
+<h1>Actors</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name ru</th>
+      <th>Country</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @actors.each do |actor| %>
+      <tr>
+        <td><%= actor.id %></td>
+        <td><%= link_to actor.name_ru, actor_path(actor) %></td>
+        <td><%= link_to actor.country.name_ru, actor.country %></td>
+        <td>
+          <%= link_to 'Edit', edit_actor_path(actor), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', actor_path(actor), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_actor_path, :class => 'btn btn-primary' %>

@@ -1,0 +1,26 @@
+<h1>Involves</h1>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Involvements count</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @involves.each do |involve| %>
+      <tr>
+        <td><%= involve.id %></td>
+        <td><%= link_to involve.name, involve %></td>
+        <td><%= involve.movie_actors.count %></td>
+        <td>
+          <%= link_to 'Edit', edit_involf_path(involve), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', involve, :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_involf_path, :class => 'btn btn-primary' %>

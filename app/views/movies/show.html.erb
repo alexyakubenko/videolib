@@ -1,0 +1,37 @@
+<h1><%= @movie.name_ru %> / <%= @movie.name_en %> (<%= @movie.year %>)</h1>
+<div>
+  <div><b>Carriers</b></div>
+  <%= raw @movie.carriers.map { |carrier| link_to carrier.name, carrier }.join(", ") %>
+</div>
+<div>
+  <div><b>Countries</b></div>
+  <%= raw @movie.countries.map { |country| link_to country.name_ru, country }.join(", ") %>
+</div>
+<div>
+  <div><b>Team</b></div>
+  <% @movie.movie_actors.each do |movie_actor| %>
+    <div>
+      <%= link_to movie_actor.actor.name_ru, movie_actor.actor %>
+      (
+      <%= link_to movie_actor.involve.name, movie_actor.involve %>
+      )
+    </div>
+  <% end %>
+</div>
+<div>
+  <div><b>Genres</b></div>
+  <% @movie.movie_genres.each do |movie_genre| %>
+    <div>
+      (
+      <%= movie_genre.percentage %>
+      )
+      <%= link_to movie_genre.genre.name, genre_path(movie_genre.genre) %>
+    </div>
+<% end %>
+</div>
+
+<div class="form-actions">
+  <%= link_to 'Back', movies_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_movie_path(@movie), :class => 'btn' %>
+  <%= link_to 'Delete', movie_path(@movie), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>

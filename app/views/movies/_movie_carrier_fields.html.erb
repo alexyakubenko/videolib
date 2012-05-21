@@ -1,0 +1,4 @@
+<div class="fields">
+  <%= f.collection_select :carrier_id, Carrier.all, :id, :name %>
+  <%= link_to_remove_fields "remove", f %>
+</div>
