@@ -1,0 +1,17 @@
+<%= form_tag :show_involve_search, :class => :"form-horizontal" do %>
+    <fieldset>
+      <legend>Find Actors by Type of Involvement</legend>
+
+      <div class="control-group">
+        <%= label_tag :involve, "Involve", :class => 'control-label' %>
+        <div class="controls">
+          <%= collection_select :actor, :involve, Involve.all, :id, :name, :class => 'text_field' %>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= submit_tag "Find", :class => 'btn btn-primary' %>
+        <%= link_to 'Cancel', :root, :class => 'btn' %>
+      </div>
+    </fieldset>
+<% end %>
